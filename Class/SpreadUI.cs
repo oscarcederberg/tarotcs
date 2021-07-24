@@ -7,6 +7,7 @@ namespace tarot
     class SpreadUI : IUserInterface
     {
         private Deck deck;
+        private Boolean _active;
 
         public SpreadUI(Deck deck)
         {
@@ -21,6 +22,10 @@ namespace tarot
         public IUserInterface Switch(IUserInterface ui)
         {
             throw new NotImplementedException();
+        }
+        public bool IsActive()
+        {
+            return _active;
         }
     }
 }
