@@ -1,10 +1,11 @@
 ﻿using System;
+using tarot.Observer;
 
-namespace tarot{
+namespace tarot.Menu{
     public class MenuEntryFunc<T> : AbstractMenuEntry<T>{
         private Func<T> _func;
 
-        public MenuEntryFunc(string text, Func<T> func, IObserver<T> observer = null) : base(text, observer){
+        public MenuEntryFunc(string text, Func<T> func, Observer.IObserver<T> observer = null) : base(text, observer){
             this._func = func;
         }
 

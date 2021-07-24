@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using tarot.Observer;
 
-namespace tarot{
+namespace tarot.Menu{
     public abstract class AbstractMenuEntry<T> : IMenuEntry, IObservable<T>{
         protected string _text;
         protected readonly List<IObserver<T>> _observers;

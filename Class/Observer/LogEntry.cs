@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace tarot{
+namespace tarot.Observer{
     public class LogEntry{
         public DateTime Time;
         public string Message;

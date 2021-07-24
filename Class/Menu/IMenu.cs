@@ -1,4 +1,4 @@
-﻿namespace tarot{
+﻿namespace tarot.Menu{
     public interface IMenu{
         public void Up();
         public void Down();

@@ -1,5 +1,5 @@
 ﻿namespace tarot{
-    interface ISpread : IMenu{
+    interface ISpread : Menu.IMenu{
 
     }
 }
