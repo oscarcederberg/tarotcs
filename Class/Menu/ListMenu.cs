@@ -28,7 +28,7 @@ namespace tarot.Menu{
                 Console.SetCursorPosition(x, y + i);
                 Console.Write(" ".Multiply(_cursor.Length + 1));
                 Console.SetCursorPosition(x + _cursor.Length, y + i);
-                Console.Write(_entries[i].ToString());
+                Console.Write(_entries[i].GetText());
             }
             Console.SetCursorPosition(x, y + _selection);
             Console.Write(_cursor);

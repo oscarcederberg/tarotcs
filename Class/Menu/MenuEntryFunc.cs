@@ -9,7 +9,7 @@ namespace tarot.Menu{
             this._func = func;
         }
 
-        public override string ToString(){
+        public override string GetText(){
             return _text;
         }
 

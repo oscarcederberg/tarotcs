@@ -12,7 +12,7 @@ namespace tarot.Menu{
             if (subscriber is not null) _subscribers.Add(subscriber);
         }
 
-        public virtual string ToString(){
+        public virtual string GetText(){
             return _text;
         }
 
