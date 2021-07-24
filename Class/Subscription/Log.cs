@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace tarot.Observer{
+namespace tarot.Subscription{
     public class Log{
         private List<LogEntry> _entries;
 

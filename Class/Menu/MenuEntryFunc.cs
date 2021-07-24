@@ -1,11 +1,11 @@
 ﻿using System;
-using tarot.Observer;
+using tarot.Subscription;
 
 namespace tarot.Menu{
     public class MenuEntryFunc<T> : AbstractMenuEntry<T>{
         private Func<T> _func;
 
-        public MenuEntryFunc(string text, Func<T> func, Observer.IObserver<T> observer = null) : base(text, observer){
+        public MenuEntryFunc(string text, Func<T> func, ISubscriber<T> observer = null) : base(text, observer){
             this._func = func;
         }
 
@@ -15,7 +15,7 @@ namespace tarot.Menu{
 
         public override void Select(){
             T value = _func.Invoke();
-            NotifyObservers(value);
+            NotifySubscribers(value);
         }
     }
 }

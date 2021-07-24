@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
-using tarot.Observer;
+using tarot.Subscription;
 
 namespace tarot.Menu{
-    public abstract class AbstractMenuEntry<T> : IMenuEntry, IObservable<T>{
+    public abstract class AbstractMenuEntry<T> : IMenuEntry, ISubscribable<T>{
         protected string _text;
-        protected readonly List<IObserver<T>> _observers;
+        protected readonly List<ISubscriber<T>> _observers;
 
-        protected AbstractMenuEntry(string text, IObserver<T> observer = null){
+        protected AbstractMenuEntry(string text, ISubscriber<T> observer = null){
             this._text = text;
-            this._observers = new List<IObserver<T>>();
+            this._observers = new List<ISubscriber<T>>();
             if (observer is not null) _observers.Add(observer);
         }
 
@@ -18,11 +18,11 @@ namespace tarot.Menu{
 
         public abstract void Select();
 
-        public virtual void AddObserver(IObserver<T> observer){
+        public virtual void Subscribe(ISubscriber<T> observer){
             _observers.Add(observer);
         }
 
-        public virtual void NotifyObservers(T value){
+        public virtual void NotifySubscribers(T value){
             _observers.ForEach(x => x.Notify(value));
         }
     }

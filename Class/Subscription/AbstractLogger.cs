@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace tarot.Observer{
+namespace tarot.Subscription{
     abstract class AbstractLogger<T> : ILogger<T>{
         protected List<Log> _logs;
         protected AbstractLogger(Log log = null){

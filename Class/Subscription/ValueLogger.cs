@@ -1,4 +1,4 @@
-﻿namespace tarot.Observer{
+﻿namespace tarot.Subscription{
     class ValueLogger<T> : AbstractLogger<T>{
         private string _onRetrieval;
         public ValueLogger(string _onRetrieval, Log log = null) : base(log){
