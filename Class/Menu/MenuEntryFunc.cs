@@ -5,7 +5,7 @@ namespace tarot.Menu{
     public class MenuEntryFunc<T> : AbstractMenuEntry<T>{
         private Func<T> _func;
 
-        public MenuEntryFunc(string text, Func<T> func, ISubscriber<T> observer = null) : base(text, observer){
+        public MenuEntryFunc(string text, Func<T> func, ISubscriber<T> subscriber = null) : base(text, subscriber){
             this._func = func;
         }
 
