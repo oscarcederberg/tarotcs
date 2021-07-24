@@ -1,7 +1,5 @@
-﻿namespace tarot
-{
-    public interface IMenu
-    {
+﻿namespace tarot{
+    public interface IMenu{
         public void Up();
         public void Down();
         public void Left();

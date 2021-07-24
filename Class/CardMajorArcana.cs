@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-
-namespace tarot
-{
-    public class CardMajorArcana : ICard
-    {
+namespace tarot{
+    public class CardMajorArcana : ICard{
         public readonly int Value;
         private readonly string _name;
         public CardMajorArcana(int value, string name){
@@ -12,8 +7,7 @@ namespace tarot
             this._name = Utilities.ToRoman(this.Value) + " - " + name;
         }
 
-        public override string ToString()
-        {
+        public override string ToString(){
             return this._name;
         }
     }

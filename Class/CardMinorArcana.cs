@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-
-namespace tarot
-{
-    public class CardMinorArcana : ICard
-    {
+namespace tarot{
+    public class CardMinorArcana : ICard{
         public readonly int Value;
         public readonly string Suit;
         private readonly string _name;
@@ -14,8 +9,7 @@ namespace tarot
             this._name = Utilities.ToMinorArcanaValueNotation(this.Value) + " of " + this.Suit;
         }
 
-        public override string ToString()
-        {
+        public override string ToString(){
             return this._name;
         }
     }

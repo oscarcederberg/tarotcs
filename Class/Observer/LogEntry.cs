@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace tarot
-{
-    public class LogEntry
-    {
+namespace tarot{
+    public class LogEntry{
         public DateTime Time;
         public string Message;
 
-        public LogEntry(string message)
-        {
+        public LogEntry(string message){
             this.Time = DateTime.Now;
             this.Message = message;
         }
 
-        override public string ToString()
-        {
+        override public string ToString(){
             return Time.ToLongTimeString() + " - " + Message;
         }
     }
