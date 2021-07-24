@@ -1,4 +1,4 @@
-﻿namespace tarot.Subscription{
+﻿namespace tarot.Subscription.Logging{
     public interface ILogger<T> : ISubscriber<T>{
         public void AddLog(Log log);
     }

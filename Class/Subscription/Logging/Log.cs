@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace tarot.Subscription{
+namespace tarot.Subscription.Logging{
     public class Log{
         private List<LogEntry> _entries;
 

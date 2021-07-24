@@ -1,6 +1,6 @@
 ﻿using System;
 using tarot.Menu;
-using tarot.Subscription;
+using tarot.Subscription.Logging;
 
 namespace tarot{
     public class MainUI : IUserInterface{

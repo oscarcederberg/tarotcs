@@ -1,4 +1,4 @@
-﻿namespace tarot.Subscription{
+﻿namespace tarot.Subscription.Logging{
     class ActionLogger : AbstractLogger<bool>{
         private string _onSuccess;
         private string _onFailure;
