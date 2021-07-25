@@ -1,7 +1,7 @@
 ﻿using System;
-using tarot.Subscription;
+using Subscription;
 
-namespace tarot.Menu{
+namespace MenuCLI{
     public class MenuEntryFunc<T> : AbstractMenuEntry<T>{
         private Func<T> _func;
 

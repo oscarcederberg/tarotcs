@@ -1,6 +1,7 @@
 ﻿using System;
+using tarot;
 
-namespace tarot.Menu{
+namespace MenuCLI{
     public class ListMenu : IMenu{
         private IMenuEntry[] _entries;
         private string _cursor;

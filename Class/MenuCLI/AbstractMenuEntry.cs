@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using tarot.Subscription;
+using Subscription;
 
-namespace tarot.Menu{
+namespace MenuCLI{
     public abstract class AbstractMenuEntry<T> : IMenuEntry, ISubscribable<T>{
         protected string _text;
         protected readonly List<ISubscriber<T>> _subscribers;

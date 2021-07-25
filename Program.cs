@@ -13,6 +13,10 @@ namespace tarot{
         public class ShuffleOptions{
             [Value(0, MetaName = "type", MetaValue = "string", Default = "riffle", HelpText = "What shuffle to perform.")]
             public string Type{get; set;}
+            [Value(1, MetaName = "amount", MetaValue = "int", Default = 1, HelpText = "Number of shuffles to perform.")]
+            public int Amount{get; set;}
+            [Option('q',"quiet", HelpText = "Suppress stdout.")]
+            public bool Quiet{get; set;}
         }
 
         static int Main(string[] args){
@@ -32,21 +36,36 @@ namespace tarot{
                 return 0;
             },
             (ShuffleOptions options) => {
+                options.Amount = Math.Max(1, options.Amount);
                 switch(options.Type.ToLower()){
                     case "riffle":
-                        deck.ShuffleDeck(ShuffleType.Riffle);
+                        for (int i = 0; i < options.Amount; i++){
+                            deck.ShuffleDeck(ShuffleType.Riffle);
+                        }
                         break;
                     case "overhand":
-                        deck.ShuffleDeck(ShuffleType.Overhand);
+                        for (int i = 0; i < options.Amount; i++){
+                            deck.ShuffleDeck(ShuffleType.Overhand);
+                        }
                         break;
                     case "fisheryates" or "perfect":
-                        deck.ShuffleDeck(ShuffleType.FisherYates);
+                        for (int i = 0; i < options.Amount; i++){
+                            deck.ShuffleDeck(ShuffleType.FisherYates);
+                        }
                         break;
                     default:
-                        Console.WriteLine("Unkown shuffletype: {0}", options.Type.ToLower());
+                        if (!options.Quiet){
+                            Console.WriteLine("Unkown shuffletype: {0}.", options.Type.ToLower());
+                        }
                         return 1;
                 }
-                Console.WriteLine("Performed {0} shuffle", options.Type.ToLower());
+                if (!options.Quiet){
+                    if(options.Amount > 1){
+                        Console.WriteLine("Performed {0} {1} shuffles.", options.Amount, options.Type.ToLower());
+                    }else{
+                        Console.WriteLine("Performed {0} shuffle.", options.Type.ToLower());
+                    }
+                }
                 return 0;
             },
             errors => 1);

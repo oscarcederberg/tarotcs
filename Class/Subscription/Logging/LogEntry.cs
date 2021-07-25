@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace tarot.Subscription.Logging{
+namespace Subscription.Logging{
     public class LogEntry{
         public DateTime Time;
         public string Message;
