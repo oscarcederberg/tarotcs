@@ -2,12 +2,12 @@
 using tarot;
 
 namespace MenuCLI{
-    public class ListMenu : IMenu{
+    public class MenuList : IMenu{
         private IMenuEntry[] _entries;
         private string _cursor;
         private int _selection = 0;
 
-        public ListMenu(IMenuEntry[] entries, string cursor){
+        public MenuList(IMenuEntry[] entries, string cursor){
             this._entries = entries;
             this._cursor = cursor;
         }

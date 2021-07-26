@@ -12,8 +12,7 @@ namespace tarot{
             Type[] types = {typeof(ShuffleOptions), typeof(GetOptions)};
 
             Deck deck = new Deck();
-            deck.AddToDeck(Utilities.DeserializeMajorArcana(@"Data/base_majorarcana.json"));
-            deck.AddToDeck(Utilities.DeserializeMinorArcana(@"Data/base_minorarcana.json"));
+            deck.AddToDeck(@"Data/default_cards.json");
             
             return Parser.Default.ParseArguments(args, types)
             .MapResult(

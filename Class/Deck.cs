@@ -15,8 +15,8 @@ namespace tarot{
             this._deck = new List<ICard>();
         }
 
-        public void AddToDeck(IEnumerable<ICard> collection){
-            this._deck.AddRange(collection);
+        public void AddToDeck(string filePath){
+            _deck.AddRange(Utilities.Deserialize<List<TarotCard>>(filePath));
         }
 
         public ICard RequeueCard() {

@@ -12,30 +12,8 @@ namespace tarot{
             (100, "C"), (90, "XC"), (50, "L"), (40, "XL"), (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I") 
         };
 
-        public static List<CardMajorArcana> DeserializeMajorArcana(string file){
-            return JsonConvert.DeserializeObject<List<CardMajorArcana>>(File.ReadAllText(file));
-        }
-
-        public static List<CardMinorArcana> DeserializeMinorArcana(string file){
-            return JsonConvert.DeserializeObject<List<CardMinorArcana>>(File.ReadAllText(file));
-        }
-
-        public static string ToMinorArcanaValueNotation(int number){
-            number = Math.Max(Math.Min(number, 14), 1);
-            switch (number){
-                case 1:
-                    return "Ace";
-                case 11:
-                    return "Page";
-                case 12:
-                    return "Knight";
-                case 13:
-                    return "Queen";
-                case 14:
-                    return "King";
-                default:
-                    return ToRoman(number);
-            }
+        public static T Deserialize<T>(string filePath){
+            return JsonConvert.DeserializeObject<T>(File.ReadAllText(filePath));
         }
 
         public static string ToRoman(int number){

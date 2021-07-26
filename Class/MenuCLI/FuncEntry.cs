@@ -2,10 +2,10 @@
 using Subscription;
 
 namespace MenuCLI{
-    public class MenuEntryFunc<T> : AbstractMenuEntry<T>{
+    public class FuncEntry<T> : MenuEntry<T>{
         private Func<T> _func;
 
-        public MenuEntryFunc(string text, Func<T> func, ISubscriber<T> subscriber = null) : base(text, subscriber){
+        public FuncEntry(string text, Func<T> func, ISubscriber<T> subscriber = null) : base(text, subscriber){
             this._func = func;
         }
 
