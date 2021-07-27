@@ -8,25 +8,30 @@ namespace tarot{
         Riffle
     }
 
-    public class Deck{
-        private List<ICard> _deck;
+    public class TarotDeck : IDeck<TarotCard>{
+        private List<TarotCard> _deck;
 
-        public Deck(){
-            this._deck = new List<ICard>();
+        public TarotDeck(){
+            this._deck = new List<TarotCard>();
         }
 
-        public void AddToDeck(string filePath){
+        public void DeserializeDeck(string filePath){
+            _deck = new List<TarotCard>();
             _deck.AddRange(Utilities.Deserialize<List<TarotCard>>(filePath));
         }
 
-        public ICard RequeueCard() {
-            ICard card = _deck.Dequeue();
+        public string SerializeDeck(){
+            return Utilities.Serialize<List<TarotCard>>(_deck);
+        }
+
+        public TarotCard RequeueCard() {
+            TarotCard card = _deck.Dequeue();
             _deck.Add(card);
             return card;
         }
 
         public void PrintDeck(){
-            foreach(ICard card in this._deck){
+            foreach(TarotCard card in this._deck){
                 Console.WriteLine(card.ToString());
             }
         }
@@ -48,7 +53,7 @@ namespace tarot{
         private void ShuffleFisherYates(){  
             for (int i = _deck.Count - 1; i >= 0; i--){
                 int k = Utilities.RNG.Next(i + 1);
-                ICard card = _deck[k];
+                TarotCard card = _deck[k];
                 _deck[k] = _deck[i];
                 _deck[i] = card;
             }
@@ -57,7 +62,7 @@ namespace tarot{
         private void ShuffleOverhand(){
             int cut = Utilities.RNG.Next(_deck.Count);
             for (int i = 0; i < cut; i++){
-                ICard card = _deck.Dequeue();
+                TarotCard card = _deck.Dequeue();
                 _deck.Add(card);
             }
         }
@@ -65,8 +70,8 @@ namespace tarot{
         private void ShuffleRiffle(){
             int cut = Utilities.RNG.Next(_deck.Count);
             int count = _deck.Count;
-            List<ICard> left = _deck.GetRange(0, cut);
-            List<ICard> right = _deck.GetRange(cut, count - cut);
+            List<TarotCard> left = _deck.GetRange(0, cut);
+            List<TarotCard> right = _deck.GetRange(cut, count - cut);
             _deck.Clear();
 
             while(left.Count > 0 && right.Count > 0){

@@ -16,6 +16,10 @@ namespace tarot{
             return JsonConvert.DeserializeObject<T>(File.ReadAllText(filePath));
         }
 
+        public static string Serialize<T>(T obj){
+            return JsonConvert.SerializeObject(obj, Formatting.Indented);
+        }
+
         public static string ToRoman(int number){
             number = Math.Max(number, 0);
 

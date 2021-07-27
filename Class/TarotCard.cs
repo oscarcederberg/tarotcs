@@ -1,12 +1,12 @@
 namespace tarot{
     public class TarotCard : ICard{
-        private readonly string _name;
-        public TarotCard(int id, string name){
-            this._name = name;
+        public readonly string Name;
+        public TarotCard(string name){
+            this.Name = name;
         }
 
         public override string ToString(){
-            return this._name;
+            return Name;
         }
     }
 }

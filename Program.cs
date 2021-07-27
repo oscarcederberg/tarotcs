@@ -4,16 +4,22 @@ using CommandLine;
 
 namespace tarot{
     class Program{
+        static string userPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData).ToString();
+        static string configPath = Path.Combine(userPath,@"tarot/");
+        static string filePath = Path.Combine(configPath,@"current_deck.json");
+        static string defaultFilePath = @"Data/default_cards.json";
+
         static int Main(string[] args){
-            string userPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string configPath = Path.Combine(userPath,@".config/tarot/");
             Directory.CreateDirectory(configPath);
+            TarotDeck deck = new TarotDeck();
+            if(File.Exists(filePath)){
+                deck.DeserializeDeck(filePath);
+            }else{
+                deck.DeserializeDeck(defaultFilePath);
+                File.WriteAllText(filePath, deck.SerializeDeck());
+            }
 
             Type[] types = {typeof(ShuffleOptions), typeof(GetOptions)};
-
-            Deck deck = new Deck();
-            deck.AddToDeck(@"Data/default_cards.json");
-            
             return Parser.Default.ParseArguments(args, types)
             .MapResult(
             (GetOptions options) => {
@@ -21,6 +27,7 @@ namespace tarot{
                 for (int i = 0; i < options.Amount; i++){
                     Console.WriteLine(deck.RequeueCard().ToString());
                 }
+                File.WriteAllText(filePath, deck.SerializeDeck());
                 return 0;
             },
             (ShuffleOptions options) => {
@@ -54,6 +61,7 @@ namespace tarot{
                         Console.WriteLine("Performed {0} shuffle.", options.Type.ToLower());
                     }
                 }
+                File.WriteAllText(filePath, deck.SerializeDeck());
                 return 0;
             },
             errors => 1);
