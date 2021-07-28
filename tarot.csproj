@@ -4,20 +4,15 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <Company>oscarcederberg</Company>
+    <Copyright>Copyright (C) 2021 Oscar Cederberg
+This program comes with ABSOLUTELY NO WARRANTY; Check the GNU General Public 
+License Version 3 (GPLv3) for more details. This is free software, and you are
+welcome to redistribute it under the GPLv3 terms and conditions.</Copyright>
+    <Version>0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Data\base_majorarcana.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\base_minorarcana.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

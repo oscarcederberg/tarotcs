@@ -12,6 +12,7 @@ namespace tarot{
         static int Main(string[] args){
             Directory.CreateDirectory(configPath);
             TarotDeck deck = new TarotDeck();
+
             if(File.Exists(filePath)){
                 deck.DeserializeDeck(filePath);
             }else{
@@ -19,19 +20,26 @@ namespace tarot{
                 File.WriteAllText(filePath, deck.SerializeDeck());
             }
 
-            Type[] types = {typeof(ShuffleOptions), typeof(GetOptions)};
+            Type[] types = {typeof(ShuffleOptions), typeof(GetOptions), typeof(ResetOptions)};
             return Parser.Default.ParseArguments(args, types)
-            .MapResult(
-            (GetOptions options) => {
-                options.Amount = Math.Max(1, options.Amount);
+                .MapResult(
+                (GetOptions options) => Get(options, deck),
+                (ShuffleOptions options) => Shuffle(options, deck),
+                (ResetOptions options) => Reset(options, deck),
+                errors => 1);
+        }
+
+        private static int Get(GetOptions options, TarotDeck deck){
+            options.Amount = Math.Max(1, options.Amount);
                 for (int i = 0; i < options.Amount; i++){
                     Console.WriteLine(deck.RequeueCard().ToString());
                 }
                 File.WriteAllText(filePath, deck.SerializeDeck());
                 return 0;
-            },
-            (ShuffleOptions options) => {
-                options.Amount = Math.Max(1, options.Amount);
+        }
+
+        private static int Shuffle(ShuffleOptions options, TarotDeck deck){
+            options.Amount = Math.Max(1, options.Amount);
                 switch(options.Type.ToLower()){
                     case "riffle":
                         for (int i = 0; i < options.Amount; i++){
@@ -63,8 +71,13 @@ namespace tarot{
                 }
                 File.WriteAllText(filePath, deck.SerializeDeck());
                 return 0;
-            },
-            errors => 1);
+        }
+
+        private static int Reset(ResetOptions options, TarotDeck deck){
+            deck.DeserializeDeck(defaultFilePath);
+            if(!options.Quiet) Console.WriteLine("The deck has been reset to default.");
+            File.WriteAllText(filePath, deck.SerializeDeck());
+            return 0;
         }
     }   
 }

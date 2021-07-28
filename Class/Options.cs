@@ -7,12 +7,18 @@ namespace tarot{
                 public uint Amount{get; set;}
             }
 
-    [Verb("shuffle", HelpText = "Shuffle the deck")]
+    [Verb("shuffle", HelpText = "Shuffle the deck.")]
     public class ShuffleOptions{
         [Value(0, MetaName = "type", MetaValue = "string", Required = false, Default = "riffle", HelpText = "What shuffle to perform.")]
         public string Type{get; set;}
         [Value(1, MetaName = "amount", MetaValue = "int", Required = false, Default = 1, HelpText = "Number of shuffles to perform.")]
         public int Amount{get; set;}
+        [Option('q',"quiet", HelpText = "Suppress stdout.")]
+        public bool Quiet{get; set;}
+    }
+
+    [Verb("reset", HelpText = "Reset deck to default.")]
+    public class ResetOptions{
         [Option('q',"quiet", HelpText = "Suppress stdout.")]
         public bool Quiet{get; set;}
     }
