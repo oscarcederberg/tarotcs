@@ -23,7 +23,7 @@ namespace tarot{
 
         public void PrintSpread(){
             for (int i = 0; i < GetLength(); i++){
-                Console.WriteLine($"{i}. {_spread_positions[i]}:\n\t{_spread_cards[i]}");
+                Console.WriteLine($"{i+1}. {_spread_positions[i]}:\n\t{_spread_cards[i]}");
             }
         }
 
