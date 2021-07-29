@@ -1,0 +1,13 @@
+[
+    /* Add any amount of spreads that should be available in the following format */
+    /* Entering the same key-value as an already existing spread will overwrite the previous spread */
+
+    /*
+    "Spread name": [
+        "First card meaning",
+        "Second card meaning",
+        "Third card meaning",
+        "And more..."
+    ]
+    */
+]

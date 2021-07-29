@@ -16,7 +16,6 @@ namespace tarot{
         }
 
         public void DeserializeDeck(string filePath){
-            _deck = new List<TarotCard>();
             _deck.AddRange(Utilities.Deserialize<List<TarotCard>>(filePath));
         }
 

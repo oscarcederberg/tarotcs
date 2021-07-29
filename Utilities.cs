@@ -51,4 +51,20 @@ namespace tarot{
             return String.Concat(Enumerable.Repeat(text, multiplier));
         }
     }
+
+    static class DictionaryExtension{
+        public static void AddRange<T,U>(this Dictionary<T,U> target, Dictionary<T,U> source)
+        {
+            if(target is null) throw new ArgumentNullException(nameof(target));
+            if(source is null) throw new ArgumentNullException(nameof(source));
+            foreach(T key in source.Keys){
+                U value = target[key];
+                if(target.ContainsKey(key)){
+                    target[key] = value;
+                }else{
+                    target.Add(key, value);
+                }
+            }
+        }
+    }
 }
