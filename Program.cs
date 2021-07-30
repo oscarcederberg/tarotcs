@@ -3,6 +3,8 @@ using System.IO;
 using System.Collections.Generic;
 using CommandLine;
 
+using TarotSpreads = System.Collections.Generic.Dictionary<string, tarot.TarotSpread>;
+
 namespace tarot{
     class Program{
         static string localApplicationDataPath = Path.Combine(
@@ -24,7 +26,7 @@ namespace tarot{
 
         static int Main(string[] args){
             TarotDeck deck = new TarotDeck();
-            Dictionary<string, TarotSpread> spreads = new Dictionary<string, TarotSpread>();
+            TarotSpreads spreads = new TarotSpreads();
             Type[] types = {typeof(ShuffleOptions), typeof(GetOptions), typeof(ResetOptions), typeof(SpreadOptions)};
 
             HandleFiles(deck, spreads);
@@ -32,13 +34,13 @@ namespace tarot{
             return Parser.Default.ParseArguments(args, types).MapResult(
                 (GetOptions options) => Get(options, deck),
                 (ShuffleOptions options) => Shuffle(options, deck),
-                (ResetOptions options) => Reset(options, deck),
-                (SpreadOptions options) => Spread(options, spreads, deck),
+                (ResetOptions options) => Reset(options, deck, spreads),
+                (SpreadOptions options) => Spread(options, deck, spreads),
                 errors => 1
             );
         }
 
-        private static void HandleFiles(TarotDeck deck, Dictionary<string, TarotSpread> spreads){
+        private static void HandleFiles(TarotDeck deck, TarotSpreads spreads){
             Directory.CreateDirectory(localApplicationDataPath);
             Directory.CreateDirectory(configurationDataPath);
 
@@ -50,9 +52,9 @@ namespace tarot{
             }
 
             if(File.Exists(currentSpreadsFilePath)){
-                spreads.AddRange(Utilities.Deserialize<Dictionary<string, TarotSpread>>(currentSpreadsFilePath));
+                spreads.AddRange(Utilities.Deserialize<TarotSpreads>(currentSpreadsFilePath));
             }else{
-                spreads.AddRange(spreads = Utilities.Deserialize<Dictionary<string, TarotSpread>>(defaultSpreadsFilePath));
+                spreads.AddRange(spreads = Utilities.Deserialize<TarotSpreads>(defaultSpreadsFilePath));
                 File.WriteAllText(currentSpreadsFilePath, Utilities.Serialize(spreads));
             }
 
@@ -66,7 +68,7 @@ namespace tarot{
 
             if(File.Exists(userSpreadsFilePath)){
                 try{
-                    spreads.AddRange(Utilities.Deserialize<Dictionary<string, TarotSpread>>(userSpreadsFilePath));
+                    spreads.AddRange(Utilities.Deserialize<TarotSpreads>(userSpreadsFilePath));
                 }catch (System.Exception){};
             }else{
                 File.WriteAllText(userSpreadsFilePath, File.ReadAllText(templateSpreadsFilePath));
@@ -121,14 +123,38 @@ namespace tarot{
                 return 0;
         }
 
-        private static int Reset(ResetOptions options, TarotDeck deck){
-            deck.DeserializeDeck(defaultCardsFilePath);
-            if(!options.Quiet) Console.WriteLine("The deck has been reset to default.");
+        private static int Reset(ResetOptions options, TarotDeck deck, TarotSpreads spreads){
+            deck = new TarotDeck();
+            spreads = new TarotSpreads();
+
+            if(options.Deck != default){
+                try{
+                    deck.DeserializeDeck(options.Deck);
+                }catch(System.Exception){
+                    if(!options.Quiet) Console.WriteLine($"Failed to load deck from '{options.Deck}' (Malformed file/path?).");
+                    deck.DeserializeDeck(defaultCardsFilePath);
+                }
+            }else{
+                deck.DeserializeDeck(defaultCardsFilePath);
+            }
+            
+            if(options.Spreads != default){
+                try{
+                    spreads.AddRange(Utilities.Deserialize<TarotSpreads>(options.Spreads));
+                }catch(System.Exception){
+                    if(!options.Quiet) Console.WriteLine($"Failed to load spreads from '{options.Spreads}' (Malformed file/path?).");
+                    spreads.AddRange(Utilities.Deserialize<TarotSpreads>(defaultSpreadsFilePath));
+                }
+            }else{
+                spreads.AddRange(Utilities.Deserialize<TarotSpreads>(defaultSpreadsFilePath));
+            }
+
+            if(!options.Quiet) Console.WriteLine("The deck and spreads have been reset to default.");
             SaveDeck(deck);
             return 0;
         }
 
-        private static int Spread(SpreadOptions options, Dictionary<string, TarotSpread> spreads, TarotDeck deck){
+        private static int Spread(SpreadOptions options, TarotDeck deck, TarotSpreads spreads){
             List<string> names = new List<string>(spreads.Keys);
 
             if(options.ListAll){

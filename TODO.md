@@ -11,7 +11,6 @@ C# Tarot-reading application
 
 ### Todo
 
-- [ ] Function to reset deck and/or spreads, either from original or from own chosen file.  
 - [ ] Flags for retrieving in .json-format.  
 - [ ] Add tarot card meanings/keywords.  
 - [ ] Customize help.  
@@ -26,5 +25,6 @@ C# Tarot-reading application
 
 ### Done ✓
 
+- [x] Function to reset deck and/or spreads, either from original or from own chosen file.  
 - [x] Current Spreads-file, similar to current deck.  
 

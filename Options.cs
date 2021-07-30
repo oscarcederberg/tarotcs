@@ -21,6 +21,12 @@ namespace tarot{
 
     [Verb("reset", HelpText = "Reset deck to default.")]
     public class ResetOptions{
+        [Option('d',"load-deck", HelpText = "Filepath to custom deck-file to load.")]
+        public string Deck{get; set;}
+
+        [Option('s',"load-spreads", HelpText = "Filepath to custom spreads-file to load.")]
+        public string Spreads{get; set;}
+
         [Option('q',"quiet", HelpText = "Suppress stdout.")]
         public bool Quiet{get; set;}
     }
