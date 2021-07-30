@@ -4,8 +4,12 @@ namespace tarot{
 
         public string SerializeSpread();
 
+        public string SerializeCards();
+
         public void PrintSpread();
 
-        public int GetLength();
+        public void PrintPositions();
+
+        public int Length();
     }
 }

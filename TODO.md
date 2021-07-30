@@ -6,24 +6,25 @@ C# Tarot-reading application
 
 ### Investigate
 
-- [ ] Possibility to create an API-like system? Library?
-- [ ] Newtonsoft.json vs. built-in .json- handler?
+- [ ] ❓ Possibility to create an API-like system? Library?  
+- [ ] ❓ Newtonsoft.json vs. built-in .json- handler?  
 
 ### Todo
 
-- [ ] Function to reset deck, either from original or from own chosen file.
-- [ ] Flags for retrieving in .json-format.
-- [ ] Current Spreads-file, similar to current deck. Reset spread, either from original or from own chosen file.
-- [ ] Add tarot card meanings/keywords.
-- [ ] Create a Minor Arcana creator (If type is minor arcana in .json, create an entire range of that suit (X of "Name")).
-- [ ] Rework shuffling.
-- [ ] Commands to swap, or insert cards at specific positions in deck, for posibility to do interactive shuffling..
-- [ ] Refactor input-handling.
-- [ ] Customize help.
+- [ ] Function to reset deck and/or spreads, either from original or from own chosen file.  
+- [ ] Flags for retrieving in .json-format.  
+- [ ] Add tarot card meanings/keywords.  
+- [ ] Customize help.  
+- [ ] Create a Minor Arcana creator (If type is minor arcana in .json, create an entire range of that suit (X of "Name")).  
+- [ ] Commands to swap, or insert cards at specific positions in deck, for posibility to do interactive shuffling..  
+- [ ] ⚠️Refactor input-handling.  
+- [ ] ⚠️Rework shuffling.  
+- [ ] 🐞Error-handling for parsing/saving files  
 
 ### In Progress
 
 
 ### Done ✓
 
+- [x] Current Spreads-file, similar to current deck.  
 

@@ -2,33 +2,43 @@ using System;
 
 namespace tarot{
     public class TarotSpread : ISpread<TarotDeck, TarotCard>{
-        private TarotCard[] _spread_cards;
-        private string[] _spread_positions;
+        public string[] Positions;
 
-        public TarotSpread(string[] positions, TarotDeck deck){
-            this._spread_positions = positions;
-            this._spread_cards = new TarotCard[GetLength()];
-            AddCards(deck);
+        private TarotCard[] _spread_cards;
+
+        public TarotSpread(string[] positions){
+            this.Positions = positions;
+            this._spread_cards = new TarotCard[Length()];
         }
 
         public void AddCards(TarotDeck deck){
-            for (int i = 0; i < GetLength(); i++){
+            for (int i = 0; i < Length(); i++){
                 this._spread_cards[i] = deck.RequeueCard();
             }
         }
 
         public string SerializeSpread(){
+            return Utilities.Serialize<TarotSpread>(this);
+        }
+
+        public string SerializeCards(){
             return Utilities.Serialize<TarotCard[]>(this._spread_cards);
         }
 
         public void PrintSpread(){
-            for (int i = 0; i < GetLength(); i++){
-                Console.WriteLine($"{i+1}. {_spread_positions[i]}:\n\t{_spread_cards[i]}");
+            for (int i = 0; i < Length(); i++){
+                Console.WriteLine($"{i+1}. {Positions[i]}:\n\t{_spread_cards[i]}");
             }
         }
 
-        public int GetLength(){
-            return _spread_positions.Length;
+        public void PrintPositions(){
+            for (int i = 0; i < Length(); i++){
+                Console.WriteLine($"{i+1}. {Positions[i]}");
+            }
+        }
+
+        public int Length(){
+            return Positions.Length;
         }
     }
 }

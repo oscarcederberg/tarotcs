@@ -58,7 +58,7 @@ namespace tarot{
             if(target is null) throw new ArgumentNullException(nameof(target));
             if(source is null) throw new ArgumentNullException(nameof(source));
             foreach(T key in source.Keys){
-                U value = target[key];
+                U value = source[key];
                 if(target.ContainsKey(key)){
                     target[key] = value;
                 }else{

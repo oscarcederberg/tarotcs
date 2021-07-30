@@ -1,21 +1,27 @@
 {
-    "Linear 3 Card Spread": [
+    "Linear 3 Card Spread": {
+      "Positions": [
         "Past, you, situation, idea",
         "Present, your path/relationship, action, process",
         "Future, your potential/partner, outcome, aspiration"
-    ],
-    "Making Decisions": [
+      ]
+    },
+    "Making Decisions": {
+      "Positions": [
         "Your motivation",
         "Ideal outcome",
         "Your values",
         "Option 1, likely outcome",
         "Option 2, likely outcome"
-    ],
-    "Hierarchy of Needs": [
+      ]
+    },
+    "Hierarchy of Needs": {
+      "Positions": [
         "Physiological",
         "Safety",
         "Love and belonging",
         "Esteem",
         "Self-actualization"
-    ]
-}
+      ]
+    }
+  }
