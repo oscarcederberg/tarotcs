@@ -22,10 +22,10 @@ C# Tarot-reading application
 
 ### In Progress
 
-- [ ] Move listing spreads and viewing one single spread to a verb that also allows viewing a specific card or all cards  
 
 ### Done ✓
 
+- [x] Move listing spreads and viewing one single spread to a verb that also allows viewing a specific card or all cards  
 - [x] Add tarot card meanings/keywords.  
 - [x] Function to reset deck and/or spreads, either from original or from own chosen file.  
 - [x] Current Spreads-file, similar to current deck.  

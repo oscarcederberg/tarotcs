@@ -36,13 +36,19 @@ namespace tarot{
 
     [Verb("spread", HelpText = "Perform a tarot spread.")]
     public class SpreadOptions{
-        [Option('l',"list",  SetName = "one", MetaValue = "string", Required = false, HelpText = "List a specific spread.")]
-        public bool List{get; set;}
+        [Value(0, MetaName = "name", MetaValue = "string", Required = true, HelpText = "Name of spread to perform.")]
+        public string Name{get; set;}
+    }
 
-        [Option('a',"list-all", SetName = "all", Required = false, HelpText = "List all spreads.")]
-        public bool ListAll{get; set;}
+    [Verb("list", HelpText = "List all available cards or spreads.")]
+    public class ListOption{
+        [Option('c',"card",  SetName = "cards", MetaValue = "string", Required = true, HelpText = "List all, or a specific card.")]
+        public bool Card{get; set;}
 
-        [Value(0, MetaName = "name", MetaValue = "string", Required = false, HelpText = "Name of spread to perform.")]
+        [Option('s',"spread",  SetName = "spread", MetaValue = "string", Required = true, HelpText = "List all, or a specific spread.")]
+        public bool Spread{get; set;}
+
+        [Value(0, MetaName = "name", MetaValue = "string", Required = false, HelpText = "Name of card or spread to list. Leave empty for all.")]
         public string Name{get; set;}
     }
 }

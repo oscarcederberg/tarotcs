@@ -9,28 +9,28 @@ namespace tarot{
     }
 
     public class TarotDeck : IDeck<TarotCard>{
-        private List<TarotCard> _deck;
+        public readonly List<TarotCard> Cards;
 
         public TarotDeck(){
-            this._deck = new List<TarotCard>();
+            this.Cards = new List<TarotCard>();
         }
 
         public void DeserializeDeck(string filePath){
-            _deck.AddRange(Utilities.Deserialize<List<TarotCard>>(filePath));
+            Cards.AddRange(Utilities.Deserialize<List<TarotCard>>(filePath));
         }
 
         public string SerializeDeck(){
-            return Utilities.Serialize<List<TarotCard>>(_deck);
+            return Utilities.Serialize<List<TarotCard>>(Cards);
         }
 
         public TarotCard RequeueCard() {
-            TarotCard card = _deck.Dequeue();
-            _deck.Add(card);
+            TarotCard card = Cards.Dequeue();
+            Cards.Add(card);
             return card;
         }
 
         public void PrintDeck(){
-            foreach(TarotCard card in this._deck){
+            foreach(TarotCard card in this.Cards){
                 Console.WriteLine(card.GetName());
             }
         }
@@ -50,39 +50,39 @@ namespace tarot{
         }
 
         private void ShuffleFisherYates(){  
-            for (int i = _deck.Count - 1; i >= 0; i--){
+            for (int i = Cards.Count - 1; i >= 0; i--){
                 int k = Utilities.RNG.Next(i + 1);
-                TarotCard card = _deck[k];
-                _deck[k] = _deck[i];
-                _deck[i] = card;
+                TarotCard card = Cards[k];
+                Cards[k] = Cards[i];
+                Cards[i] = card;
             }
         }
 
         private void ShuffleOverhand(){
-            int cut = Utilities.RNG.Next(_deck.Count);
+            int cut = Utilities.RNG.Next(Cards.Count);
             for (int i = 0; i < cut; i++){
-                TarotCard card = _deck.Dequeue();
-                _deck.Add(card);
+                TarotCard card = Cards.Dequeue();
+                Cards.Add(card);
             }
         }
 
         private void ShuffleRiffle(){
-            int cut = Utilities.RNG.Next(_deck.Count);
-            int count = _deck.Count;
-            List<TarotCard> left = _deck.GetRange(0, cut);
-            List<TarotCard> right = _deck.GetRange(cut, count - cut);
-            _deck.Clear();
+            int cut = Utilities.RNG.Next(Cards.Count);
+            int count = Cards.Count;
+            List<TarotCard> left = Cards.GetRange(0, cut);
+            List<TarotCard> right = Cards.GetRange(cut, count - cut);
+            Cards.Clear();
 
             while(left.Count > 0 && right.Count > 0){
-                _deck.Add(left.Dequeue());
-                _deck.Add(right.Dequeue());
+                Cards.Add(left.Dequeue());
+                Cards.Add(right.Dequeue());
             }
 
             if(left.Count == 0){
-                _deck.AddRange(right);
+                Cards.AddRange(right);
             } 
             else if(right.Count == 0){
-                _deck.AddRange(left);
+                Cards.AddRange(left);
             }
         }
     }

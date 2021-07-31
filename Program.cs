@@ -27,7 +27,7 @@ namespace tarot{
         static int Main(string[] args){
             TarotDeck deck = new TarotDeck();
             TarotSpreads spreads = new TarotSpreads();
-            Type[] types = {typeof(ShuffleOptions), typeof(GetOptions), typeof(ResetOptions), typeof(SpreadOptions)};
+            Type[] types = {typeof(ShuffleOptions), typeof(GetOptions), typeof(ResetOptions), typeof(SpreadOptions), typeof(ListOption)};
 
             HandleFiles(deck, spreads);
 
@@ -36,6 +36,7 @@ namespace tarot{
                 (ShuffleOptions options) => Shuffle(options, deck),
                 (ResetOptions options) => Reset(options, deck, spreads),
                 (SpreadOptions options) => Spread(options, deck, spreads),
+                (ListOption options) => List(options, deck, spreads),
                 errors => 1
             );
         }
@@ -159,37 +160,65 @@ namespace tarot{
         private static int Spread(SpreadOptions options, TarotDeck deck, TarotSpreads spreads){
             List<string> names = new List<string>(spreads.Keys);
 
-            if(options.ListAll){
-                names.Sort();
-                for (int i = 0; i < names.Count; i++){
-                    string name = names[i];
-                    Console.WriteLine($"{i+1}. {name}:");
-                    TarotSpread spread = spreads[name];
-                    for (int j = 0; j < spread.Length(); j++){
-                        Console.WriteLine($"\t{j+1}) {spread.Positions[j]}");
-                    }
-                }
-            }else if(options.Name != default){
-                if(names.Contains(options.Name)){
-                    TarotSpread spread = spreads[options.Name];
-                    if(options.List){
-                        Console.WriteLine($"{options.Name}:"); 
-                        for (int j = 0; j < spread.Length(); j++){
-                            Console.WriteLine($"\t{j+1}) {spread.Positions[j]}");
-                        }
-                    }else{
-                        spread.AddCards(deck);
-                        spread.PrintSpread();
-                    }
-                }else{
-                    Console.WriteLine("Spread does not exist.");
-                    return 1;
-                }
+            if(names.Contains(options.Name)){
+                TarotSpread spread = spreads[options.Name];
+                spread.AddCards(deck);
+                spread.PrintSpread();
+                SaveDeck(deck);
+                return 0;
             }else{
+                Console.WriteLine("Spread does not exist.");
                 return 1;
             }
-            SaveDeck(deck);
-            return 0;
         } 
+
+         private static int List(ListOption options, TarotDeck deck, TarotSpreads spreads){
+             if(options.Card){
+                 if(options.Name != default){
+                     TarotCard card = deck.Cards.Find((TarotCard c) => c.Name.ToLower() == options.Name.ToLower());
+
+                     if(card is not null){
+                         Console.WriteLine($"{card.GetName()}:\n\t{card.GetKeywords()}");
+                     }else{
+                         Console.WriteLine("That card does not exist.");
+                         return 1;
+                     }
+                 }else{
+                     foreach (TarotCard card in deck.Cards)
+                     {
+                         Console.WriteLine($"{card.GetName()}:\n\t{card.GetKeywords()}");
+                     }
+                 }
+             }else if(options.Spread){
+                 List<string> names = new List<string>(spreads.Keys);
+                 names.Sort();
+
+                 if(options.Name != default){
+                     string name = names.Find((string n) => n.ToLower() == options.Name.ToLower());
+
+                     if(name is not null){
+                        TarotSpread spread = spreads[name];
+
+                        Console.WriteLine($"{name}:");
+                        for (int i = 0; i < spread.Length(); i++){
+                            Console.WriteLine($"\t{i+1}. {spread.Positions[i]}");
+                        }
+                     }else{
+                         Console.WriteLine("That spread does not exist.");
+                         return 1;
+                     }
+                 }else{
+                     foreach(string name in names){
+                        TarotSpread spread = spreads[name];
+
+                        Console.WriteLine($"{name}:");
+                        for (int i = 0; i < spread.Length(); i++){
+                            Console.WriteLine($"\t{i+1}. {spread.Positions[i]}");
+                        }
+                     }
+                 }
+             }
+             return 0;
+         }
     }   
 }
