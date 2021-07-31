@@ -31,7 +31,7 @@ namespace tarot{
 
         public void PrintDeck(){
             foreach(TarotCard card in this._deck){
-                Console.WriteLine(card.ToString());
+                Console.WriteLine(card.GetName());
             }
         }
 

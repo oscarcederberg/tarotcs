@@ -1,12 +1,19 @@
 namespace tarot{
     public class TarotCard : ICard{
         public readonly string Name;
-        public TarotCard(string name){
+        public readonly string Keywords;
+
+        public TarotCard(string name, string keywords){
             this.Name = name;
+            this.Keywords = keywords;
         }
 
-        public override string ToString(){
+        public string GetName(){
             return Name;
+        }
+
+        public string GetKeywords(){
+            return Keywords;
         }
     }
 }

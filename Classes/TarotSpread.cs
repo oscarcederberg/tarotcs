@@ -2,7 +2,7 @@ using System;
 
 namespace tarot{
     public class TarotSpread : ISpread<TarotDeck, TarotCard>{
-        public string[] Positions;
+        public readonly string[] Positions;
 
         private TarotCard[] _spread_cards;
 

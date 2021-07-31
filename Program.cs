@@ -82,7 +82,9 @@ namespace tarot{
         private static int Get(GetOptions options, TarotDeck deck){
             options.Amount = Math.Max(1, options.Amount);
             for (int i = 0; i < options.Amount; i++){
-                Console.WriteLine(deck.RequeueCard().ToString());
+                TarotCard card = deck.RequeueCard();
+                Console.WriteLine(card.GetName());
+                if(options.Keywords) Console.WriteLine($"\tKeywords: {card.GetKeywords()}");
             }
             SaveDeck(deck);
             return 0;

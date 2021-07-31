@@ -5,6 +5,9 @@ namespace tarot{
     public class GetOptions{
         [Value(0, MetaName = "amount", MetaValue = "uint", Required = false, Default = 1u, HelpText = "Amount of cards to retrieve.")]
         public uint Amount{get; set;}
+
+        [Option('k',"keywords", HelpText = "Print out keywords related to the retrieved cards.")]
+        public bool Keywords{get; set;}
     }
 
     [Verb("shuffle", HelpText = "Shuffle the deck.")]
@@ -39,7 +42,7 @@ namespace tarot{
         [Option('a',"list-all", SetName = "all", Required = false, HelpText = "List all spreads.")]
         public bool ListAll{get; set;}
 
-        [Value(0, MetaName = "name", MetaValue = "string", Required = false, Default = "", HelpText = "Name of spread to perform.")]
+        [Value(0, MetaName = "name", MetaValue = "string", Required = false, HelpText = "Name of spread to perform.")]
         public string Name{get; set;}
     }
 }

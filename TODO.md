@@ -12,19 +12,21 @@ C# Tarot-reading application
 ### Todo
 
 - [ ] Flags for retrieving in .json-format.  
-- [ ] Add tarot card meanings/keywords.  
 - [ ] Customize help.  
-- [ ] Create a Minor Arcana creator (If type is minor arcana in .json, create an entire range of that suit (X of "Name")).  
 - [ ] Commands to swap, or insert cards at specific positions in deck, for posibility to do interactive shuffling..  
+- [ ] Add option for drawing reverse cards  
 - [ ] ⚠️Refactor input-handling.  
+- [ ] ⚠️Add documentation  
 - [ ] ⚠️Rework shuffling.  
 - [ ] 🐞Error-handling for parsing/saving files  
 
 ### In Progress
 
+- [ ] Move listing spreads and viewing one single spread to a verb that also allows viewing a specific card or all cards  
 
 ### Done ✓
 
+- [x] Add tarot card meanings/keywords.  
 - [x] Function to reset deck and/or spreads, either from original or from own chosen file.  
 - [x] Current Spreads-file, similar to current deck.  
 
