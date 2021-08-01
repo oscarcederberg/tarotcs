@@ -9,5 +9,9 @@ namespace tarot{
         public void PrintDeck();
 
         public void ShuffleDeck(ShuffleType shuffleType);
+
+        public void SwapCards(int firstIndex, int otherIndex);
+
+        public void MoveCard(int cardIndex, int newIndexx);
     }
 }

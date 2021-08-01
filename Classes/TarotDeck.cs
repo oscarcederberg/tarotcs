@@ -49,6 +49,19 @@ namespace tarot{
             }
         }
 
+        public void SwapCards(int firstIndex, int otherIndex){
+            TarotCard temp = Cards[firstIndex];
+            Cards[firstIndex] = Cards[otherIndex];
+            Cards[otherIndex] = temp;
+        }
+
+        public void MoveCard(int oldIndex, int newIndex){
+            TarotCard card = Cards[oldIndex];
+            Cards.RemoveAt(oldIndex);
+            if(newIndex > oldIndex) newIndex--; 
+            Cards.Insert(newIndex, card);
+        }
+
         private void ShuffleFisherYates(){  
             for (int i = Cards.Count - 1; i >= 0; i--){
                 int k = Utilities.RNG.Next(i + 1);

@@ -11,10 +11,10 @@ C# Tarot-reading application
 
 ### Todo
 
+- [ ] List cards in order  
 - [ ] Flags for retrieving in .json-format.  
-- [ ] Customize help.  
-- [ ] Commands to swap, or insert cards at specific positions in deck, for posibility to do interactive shuffling..  
 - [ ] Add option for drawing reverse cards  
+- [ ] ⚠️Customize help.  
 - [ ] ⚠️Refactor input-handling.  
 - [ ] ⚠️Add documentation  
 - [ ] ⚠️Rework shuffling.  
@@ -22,6 +22,7 @@ C# Tarot-reading application
 
 ### In Progress
 
+- [ ] Commands to swap, or insert cards at specific positions in deck, for posibility to do interactive shuffling.  
 
 ### Done ✓
 

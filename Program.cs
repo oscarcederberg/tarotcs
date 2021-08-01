@@ -11,7 +11,7 @@ namespace tarot{
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), @"tarot/"
         );
         static string currentDeckFilePath = Path.Combine(localApplicationDataPath,@"current_deck.json");
-        static string currentSpreadsFilePath = Path.Combine(localApplicationDataPath,@"current_spreads.json");
+        static string currentSpreadsFilePath = Path.Combine(localApplicationDataPath,@"current_spreads.json");      
 
         static string configurationDataPath = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @".config/tarot/"
