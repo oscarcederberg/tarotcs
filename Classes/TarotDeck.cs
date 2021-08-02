@@ -49,10 +49,10 @@ namespace tarot{
             }
         }
 
-        public void SwapCards(int firstIndex, int otherIndex){
+        public void SwapCards(int firstIndex, int secondIndex){
             TarotCard temp = Cards[firstIndex];
-            Cards[firstIndex] = Cards[otherIndex];
-            Cards[otherIndex] = temp;
+            Cards[firstIndex] = Cards[secondIndex];
+            Cards[secondIndex] = temp;
         }
 
         public void MoveCard(int oldIndex, int newIndex){

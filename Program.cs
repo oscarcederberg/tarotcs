@@ -27,7 +27,8 @@ namespace tarot{
         static int Main(string[] args){
             TarotDeck deck = new TarotDeck();
             TarotSpreads spreads = new TarotSpreads();
-            Type[] types = {typeof(ShuffleOptions), typeof(GetOptions), typeof(ResetOptions), typeof(SpreadOptions), typeof(ListOption)};
+            Type[] types = {typeof(ShuffleOptions), typeof(GetOptions), typeof(ResetOptions), typeof(SpreadOptions), typeof(ListOption),
+                            typeof(MoveOptions), typeof(SwapOptions)};
 
             HandleFiles(deck, spreads);
 
@@ -37,6 +38,8 @@ namespace tarot{
                 (ResetOptions options) => Reset(options, deck, spreads),
                 (SpreadOptions options) => Spread(options, deck, spreads),
                 (ListOption options) => List(options, deck, spreads),
+                (MoveOptions options) => Move(options, deck),
+                (SwapOptions options) => Swap(options, deck),
                 errors => 1
             );
         }
@@ -219,6 +222,28 @@ namespace tarot{
                  }
              }
              return 0;
+         }
+
+         private static int Move(MoveOptions options, TarotDeck deck){
+             if(options.OldIndex > deck.Cards.Count -1 || options.OldIndex < 0 ||
+                 options.NewIndex > deck.Cards.Count -1 || options.NewIndex < 0){
+                 Console.WriteLine($"Positional index is outside of the deck range [0,{deck.Cards.Count -1}].");
+                 return 1;
+             }else{
+                 deck.MoveCard(options.OldIndex, options.NewIndex);
+                 return 0;
+             }
+         }
+
+         private static int Swap(SwapOptions options, TarotDeck deck){
+             if(options.FirstIndex > deck.Cards.Count -1 || options.FirstIndex < 0 ||
+                 options.SecondIndex > deck.Cards.Count -1 || options.SecondIndex < 0){
+                 Console.WriteLine($"Positional index is outside of the deck range [0,{deck.Cards.Count -1}].");
+                 return 1;
+             }else{
+                 deck.SwapCards(options.FirstIndex, options.SecondIndex);
+                 return 0;
+             }
          }
     }   
 }

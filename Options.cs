@@ -51,4 +51,22 @@ namespace tarot{
         [Value(0, MetaName = "name", MetaValue = "string", Required = false, HelpText = "Name of card or spread to list. Leave empty for all.")]
         public string Name{get; set;}
     }
+
+    [Verb("move", HelpText = "Move a card to a new position in the deck.")]
+    public class MoveOptions{
+        [Value(0, MetaName = "card index", MetaValue = "int", Required = true, HelpText = "Position of card to move.")]
+        public int OldIndex{get; set;}
+
+        [Value(0, MetaName = "new index", MetaValue = "int", Required = true, HelpText = "Position of where to move the card to.")]
+        public int NewIndex{get; set;}
+    }
+
+    [Verb("swap", HelpText = "Swap the positions of two cards in the deck")]
+    public class SwapOptions{
+        [Value(0, MetaName = "first card index", MetaValue = "int", Required = true, HelpText = "Position of first card to swap.")]
+        public int FirstIndex{get; set;}
+
+        [Value(0, MetaName = "second card index", MetaValue = "int", Required = true, HelpText = "Position of second card to swap.")]
+        public int SecondIndex{get; set;}
+    }
 }
