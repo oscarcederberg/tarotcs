@@ -14,6 +14,7 @@ C# Tarot-reading application
 - [ ] List cards in order  
 - [ ] Flags for retrieving in .json-format.  
 - [ ] Add option for drawing reverse cards  
+- [ ] ⚠️Switch uint arguments to int, handle out-of-range cases.  
 - [ ] ⚠️Customize help.  
 - [ ] ⚠️Refactor input-handling.  
 - [ ] ⚠️Add documentation  
@@ -22,12 +23,11 @@ C# Tarot-reading application
 
 ### In Progress
 
-- [ ] Commands to swap, or insert cards at specific positions in deck, for posibility to do interactive shuffling.  
-
 ### Done ✓
 
 - [x] Move listing spreads and viewing one single spread to a verb that also allows viewing a specific card or all cards  
 - [x] Add tarot card meanings/keywords.  
 - [x] Function to reset deck and/or spreads, either from original or from own chosen file.  
 - [x] Current Spreads-file, similar to current deck.  
+- [x] Commands to swap, or insert cards at specific positions in deck, for posibility to do interactive shuffling.
 
