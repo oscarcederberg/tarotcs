@@ -85,10 +85,23 @@ namespace tarot{
 
         private static int Get(GetOptions options, TarotDeck deck){
             options.Amount = Math.Max(1, options.Amount);
+            Random random = new Random();
+            Array orientations = Enum.GetValues(typeof(Orientation));
+
             for (int i = 0; i < options.Amount; i++){
                 TarotCard card = deck.RequeueCard();
-                Console.WriteLine(card.GetName());
-                if(options.Keywords) Console.WriteLine($"\tKeywords: {card.GetKeywords()}");
+                if(options.RandomizeOrientation){
+                    Orientation orientation = (Orientation)orientations.GetValue(random.Next(orientations.Length));
+                    if(orientation == Orientation.Upright){
+                        Console.WriteLine(card.GetName());
+                    }else{
+                        Console.WriteLine($"Reverse {card.GetName()}");
+                    }
+                    if(options.Keywords) Console.WriteLine($"\tKeywords: {card.GetKeywords(orientation)}");
+                }else{
+                    Console.WriteLine(card.GetName());
+                    if(options.Keywords) Console.WriteLine($"\tKeywords: {card.GetKeywords()}");
+                }
             }
             SaveDeck(deck);
             return 0;
@@ -182,7 +195,7 @@ namespace tarot{
                     TarotCard card = deck.Cards.Find(c => c.Name.ToLower() == options.Name.ToLower());
 
                     if(card is not null){
-                        Console.WriteLine($"{card.GetName()}:\n\t{card.GetKeywords()}");
+                        Console.WriteLine($"{card.GetName()}: \n\tUpright: {card.GetKeywords(Orientation.Upright)}\n\tReverse: {card.GetKeywords(Orientation.Reverse)}");
                     }else{
                         Console.WriteLine("That card does not exist.");
                         return 1;
@@ -195,7 +208,7 @@ namespace tarot{
                     
                     for (int i = 0; i < cards_in_order.Count; i++){
                         TarotCard card = cards_in_order[i];
-                        Console.WriteLine($"{card.GetName()}:\n\tKeywords: {card.GetKeywords()}");
+                        Console.WriteLine($"{card.GetName()}: \n\tUpright: {card.GetKeywords(Orientation.Upright)}\n\tReverse: {card.GetKeywords(Orientation.Reverse)}");
                     }
                 }
             }else if(options.Spread){

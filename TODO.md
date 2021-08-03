@@ -12,7 +12,6 @@ C# Tarot-reading application
 ### Todo
 
 - [ ] Flags for retrieving in .json-format.  
-- [ ] Add option for drawing reverse cards  
 - [ ] ⚠️Switch uint arguments to int, handle out-of-range cases.  
 - [ ] ⚠️Customize help.  
 - [ ] ⚠️Refactor input-handling.  
@@ -25,6 +24,7 @@ C# Tarot-reading application
 
 ### Done ✓
 
+- [x] Add option for drawing reverse cards  
 - [x] List cards in order  
 - [x] Move listing spreads and viewing one single spread to a verb that also allows viewing a specific card or all cards  
 - [x] Add tarot card meanings/keywords.  

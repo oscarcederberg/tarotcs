@@ -8,7 +8,7 @@ namespace tarot{
         Riffle
     }
 
-    public class TarotDeck : IDeck<TarotCard>{
+    public class TarotDeck{
         public readonly List<TarotCard> Cards;
 
         public TarotDeck(){

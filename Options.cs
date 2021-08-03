@@ -6,6 +6,9 @@ namespace tarot{
         [Value(0, MetaName = "amount", MetaValue = "uint", Required = false, Default = 1u, HelpText = "Amount of cards to retrieve.")]
         public uint Amount{get; set;}
 
+        [Option('r',"randomize-orientation", Default = false, HelpText = "Randomize orientation of retrieved cards.")]
+        public bool RandomizeOrientation{get; set;}
+
         [Option('k',"keywords", HelpText = "Print out keywords related to the retrieved cards.")]
         public bool Keywords{get; set;}
     }
