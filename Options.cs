@@ -40,15 +40,15 @@ namespace tarot{
         public string Name{get; set;}
     }
 
-    [Verb("list", HelpText = "List all available cards or spreads.")]
-    public class ListOption{
-        [Option('c',"card",  SetName = "cards", MetaValue = "string", Required = true, HelpText = "List all, or a specific card.")]
+    [Verb("view", HelpText = "View all available cards or spreads.")]
+    public class ViewOptions{
+        [Option('c',"card",  SetName = "cards", MetaValue = "string", Required = true, HelpText = "List all, or view a specific card.")]
         public bool Card{get; set;}
 
-        [Option('s',"spread",  SetName = "spread", MetaValue = "string", Required = true, HelpText = "List all, or a specific spread.")]
+        [Option('s',"spread",  SetName = "spread", MetaValue = "string", Required = true, HelpText = "List all, or view a specific spread.")]
         public bool Spread{get; set;}
 
-        [Value(0, MetaName = "name", MetaValue = "string", Required = false, HelpText = "Name of card or spread to list. Leave empty for all.")]
+        [Value(0, MetaName = "name", MetaValue = "string", Required = false, HelpText = "Name of card or spread to view. Leave empty for all.")]
         public string Name{get; set;}
     }
 

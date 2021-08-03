@@ -11,7 +11,7 @@ namespace tarot{
             this._spread_cards = new TarotCard[Length()];
         }
 
-        public void AddCards(TarotDeck deck){
+        public void EnqueueCards(TarotDeck deck){
             for (int i = 0; i < Length(); i++){
                 this._spread_cards[i] = deck.RequeueCard();
             }

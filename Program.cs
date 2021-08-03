@@ -27,7 +27,7 @@ namespace tarot{
         static int Main(string[] args){
             TarotDeck deck = new TarotDeck();
             TarotSpreads spreads = new TarotSpreads();
-            Type[] types = {typeof(ShuffleOptions), typeof(GetOptions), typeof(ResetOptions), typeof(SpreadOptions), typeof(ListOption),
+            Type[] types = {typeof(ShuffleOptions), typeof(GetOptions), typeof(ResetOptions), typeof(SpreadOptions), typeof(ViewOptions),
                             typeof(MoveOptions), typeof(SwapOptions)};
 
             HandleFiles(deck, spreads);
@@ -37,7 +37,7 @@ namespace tarot{
                 (ShuffleOptions options) => Shuffle(options, deck),
                 (ResetOptions options) => Reset(options, deck, spreads),
                 (SpreadOptions options) => Spread(options, deck, spreads),
-                (ListOption options) => List(options, deck, spreads),
+                (ViewOptions options) => View(options, deck, spreads),
                 (MoveOptions options) => Move(options, deck),
                 (SwapOptions options) => Swap(options, deck),
                 errors => 1
@@ -162,10 +162,11 @@ namespace tarot{
 
         private static int Spread(SpreadOptions options, TarotDeck deck, TarotSpreads spreads){
             List<string> names = new List<string>(spreads.Keys);
-
-            if(names.Contains(options.Name)){
-                TarotSpread spread = spreads[options.Name];
-                spread.AddCards(deck);
+            string name = names.Find(n => n.ToLower() == options.Name.ToLower());
+            
+            if(name is not null){
+                TarotSpread spread = spreads[name];
+                spread.EnqueueCards(deck);
                 spread.PrintSpread();
                 SaveDeck(deck);
                 return 0;
@@ -175,75 +176,80 @@ namespace tarot{
             }
         } 
 
-         private static int List(ListOption options, TarotDeck deck, TarotSpreads spreads){
-             if(options.Card){
-                 if(options.Name != default){
-                     TarotCard card = deck.Cards.Find((TarotCard c) => c.Name.ToLower() == options.Name.ToLower());
+        private static int View(ViewOptions options, TarotDeck deck, TarotSpreads spreads){
+            if(options.Card){
+                if(options.Name != default){
+                    TarotCard card = deck.Cards.Find(c => c.Name.ToLower() == options.Name.ToLower());
 
-                     if(card is not null){
-                         Console.WriteLine($"{card.GetName()}:\n\t{card.GetKeywords()}");
-                     }else{
-                         Console.WriteLine("That card does not exist.");
-                         return 1;
-                     }
-                 }else{
-                     foreach (TarotCard card in deck.Cards)
-                     {
-                         Console.WriteLine($"{card.GetName()}:\n\t{card.GetKeywords()}");
-                     }
-                 }
-             }else if(options.Spread){
-                 List<string> names = new List<string>(spreads.Keys);
-                 names.Sort();
+                    if(card is not null){
+                        Console.WriteLine($"{card.GetName()}:\n\t{card.GetKeywords()}");
+                    }else{
+                        Console.WriteLine("That card does not exist.");
+                        return 1;
+                    }
+                }else{
+                    List<TarotCard> cards_in_order = Utilities.Deserialize<List<TarotCard>>(defaultCardsFilePath);
+                    try{
+                        cards_in_order.AddRange(Utilities.Deserialize<List<TarotCard>>(userCardsFilePath));
+                    }catch (System.Exception){}
+                    
+                    for (int i = 0; i < cards_in_order.Count; i++){
+                        TarotCard card = cards_in_order[i];
+                        Console.WriteLine($"{card.GetName()}:\n\tKeywords: {card.GetKeywords()}");
+                    }
+                }
+            }else if(options.Spread){
+                List<string> names = new List<string>(spreads.Keys);
+                names.Sort();
 
-                 if(options.Name != default){
-                     string name = names.Find((string n) => n.ToLower() == options.Name.ToLower());
+                if(options.Name != default){
+                    string name = names.Find(n => n.ToLower() == options.Name.ToLower());
 
-                     if(name is not null){
+                    if(name is not null){
+                    TarotSpread spread = spreads[name];
+
+                    Console.WriteLine($"{name}:");
+                    for (int i = 0; i < spread.Length(); i++){
+                        Console.WriteLine($"\t{i+1}. {spread.Positions[i]}");
+                    }
+                    }else{
+                        Console.WriteLine("That spread does not exist.");
+                        return 1;
+                    }
+                }else{
+                    foreach(string name in names){
                         TarotSpread spread = spreads[name];
 
                         Console.WriteLine($"{name}:");
                         for (int i = 0; i < spread.Length(); i++){
                             Console.WriteLine($"\t{i+1}. {spread.Positions[i]}");
                         }
-                     }else{
-                         Console.WriteLine("That spread does not exist.");
-                         return 1;
-                     }
-                 }else{
-                     foreach(string name in names){
-                        TarotSpread spread = spreads[name];
+                    }
+                }
+            }
+            return 0;
+        }
 
-                        Console.WriteLine($"{name}:");
-                        for (int i = 0; i < spread.Length(); i++){
-                            Console.WriteLine($"\t{i+1}. {spread.Positions[i]}");
-                        }
-                     }
-                 }
-             }
-             return 0;
-         }
+        private static int Move(MoveOptions options, TarotDeck deck){
+            if(options.OldIndex > deck.Cards.Count -1 || options.OldIndex < 0 ||
+                options.NewIndex > deck.Cards.Count -1 || options.NewIndex < 0){
+                Console.WriteLine($"Positional index is outside of the deck range [0,{deck.Cards.Count -1}].");
+                return 1;
+            }else{
+                deck.MoveCard(options.OldIndex, options.NewIndex);
+                return 0;
+            }
+        }
 
-         private static int Move(MoveOptions options, TarotDeck deck){
-             if(options.OldIndex > deck.Cards.Count -1 || options.OldIndex < 0 ||
-                 options.NewIndex > deck.Cards.Count -1 || options.NewIndex < 0){
-                 Console.WriteLine($"Positional index is outside of the deck range [0,{deck.Cards.Count -1}].");
-                 return 1;
-             }else{
-                 deck.MoveCard(options.OldIndex, options.NewIndex);
-                 return 0;
-             }
-         }
-
-         private static int Swap(SwapOptions options, TarotDeck deck){
-             if(options.FirstIndex > deck.Cards.Count -1 || options.FirstIndex < 0 ||
-                 options.SecondIndex > deck.Cards.Count -1 || options.SecondIndex < 0){
-                 Console.WriteLine($"Positional index is outside of the deck range [0,{deck.Cards.Count -1}].");
-                 return 1;
-             }else{
-                 deck.SwapCards(options.FirstIndex, options.SecondIndex);
-                 return 0;
-             }
-         }
+        private static int Swap(SwapOptions options, TarotDeck deck){
+            if(options.FirstIndex > deck.Cards.Count -1 || options.FirstIndex < 0 ||
+                options.SecondIndex > deck.Cards.Count -1 || options.SecondIndex < 0){
+                Console.WriteLine($"Positional index is outside of the deck range [0,{deck.Cards.Count -1}].");
+                return 1;
+            }else{
+                deck.SwapCards(options.FirstIndex, options.SecondIndex);
+                return 0;
+            }
+        }
     }   
 }
