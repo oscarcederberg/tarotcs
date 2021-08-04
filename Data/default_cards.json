@@ -1,396 +1,396 @@
 [
     {
         "Name": "0 The Fool",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Thoughtlessness, insanity, delirium, inebriation.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "I The Magician",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Talents, self-confidence, will, concentration.",
+        "KeywordsReverse": "Anxiety, weak-willed, susceptible to ills."
     },
     {
         "Name": "II The High Priestess",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Wisdom, knowledge, self-discovery. calmness.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "III The Empress",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Fertility, motherhood, initative, mystery.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "IV The Emperor",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Establishment, fatherhood, power, stability.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "V The Hierophant",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Mercifulness, goodness, marriage, unification.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "VI The Lovers",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Attainable, love, beauty, attraction.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "VII The Chariot",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Triumph, victory, revenge, hardship.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "VIII Strength",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Power, energy, prosperity, courage.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "IX The Hermit",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Prudence, caring, hypocrisy, treachery.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "X Wheel of Fortune",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Destiny, luck, success, joy.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XI Justice",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Harmony, impartiality, sincerity, justice.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XII The Hanged Man",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Trials, prophecy, forethought, carefulness",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XIII Death",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Death, change, end, loss of ego.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XIV Temperance",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Moderation, sufficient, adaptability, balance.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XV The Devil",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Intensity, violence, destiny manifesting, power.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XVI The Tower",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Sudden change, misery, loss, despair.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XVII The Star",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Hope, good intentions, loss, hardships.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XVIII The Moon",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Danger, slander, disappointment, miscalculation.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XIX The Sun",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Satisfaction, prosperity, joy, appreciation.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XX Judgement",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Renewal, resolution, conviction, absolute.",
+        "KeywordsReverse": ""
     },
     {
         "Name": "XXI The World",
-        "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsUpright": "Fulfillment, reward, secured success, major change.",
+        "KeywordsReverse": ""
     },
 
     {
         "Name": "Ace of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Two of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Three of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Four of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Five of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Six of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Seven of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Eight of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Nine of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Ten of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Page of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Knight of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Queen of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "King of Staffs",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
 
     {
         "Name": "Ace of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Two of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Three of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Four of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Five of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Six of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Seven of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Eight of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Nine of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Ten of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Page of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Knight of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Queen of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "King of Cups",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
 
     {
         "Name": "Ace of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Two of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Three of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Four of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Five of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Six of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Seven of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Eight of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Nine of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Ten of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Page of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Knight of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Queen of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "King of Swords",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
 
     {
         "Name": "Ace of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Two of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Three of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Four of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Five of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Six of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Seven of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Eight of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Nine of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Ten of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Page of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Knight of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "Queen of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     },
     {
         "Name": "King of Pentacles",
         "KeywordsUpright": "",
-        "KeywordReverse": ""
+        "KeywordsReverse": ""
     }
 ]

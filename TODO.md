@@ -21,6 +21,7 @@ C# Tarot-reading application
 
 ### In Progress
 
+- [ ] Add keyword-text.  
 
 ### Done ✓
 
