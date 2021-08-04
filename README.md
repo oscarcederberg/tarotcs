@@ -7,4 +7,4 @@ The goal of the program is to make a background process/daemon or "API"-like pro
 ## Inspiration
 I've had a great interest in tarot cards for a while. I don't personally believe in it, but it is a fun hobby and has a lot of interesting concepts. My recent intrigue for it grew after viewing these projects, in particular:  
 [The Alleyman's Tarot](https://www.kickstarter.com/projects/713books/the-alleymans-tarot/description), by 713Books.  
-[Tarot Cards](https://matthewlopz.newgrounds.com/), by MatthewLopz.  
+[Major Arcana designs](https://matthewlopz.newgrounds.com/), by MatthewLopz.  
